@@ -20,6 +20,7 @@ const seedPackages: Package[] = destinations.map((d) => ({
   durationNights: parseInt(d.days.split("/")[1] ?? "0"),
   description: d.description,
   imageDataUrl: d.image,
+  features: d.features ?? [],
   isAdminAdded: false,
 }));
 

@@ -1,3 +1,8 @@
+export interface PackageFeature {
+  label: string;
+  detail: string;
+}
+
 export interface Package {
   id: string;           // UUID generated at creation time
   title: string;
@@ -6,7 +11,8 @@ export interface Package {
   durationNights: number;
   description: string;
   imageDataUrl: string; // base64 data URL or asset URL
-  isAdminAdded?: boolean; // flag to distinguish admin-added packages
+  features: PackageFeature[];
+  isAdminAdded?: boolean;
 }
 
 export interface PackageFormData {
@@ -16,6 +22,7 @@ export interface PackageFormData {
   durationNights: number;
   description: string;
   imageDataUrl: string;
+  features: PackageFeature[];
 }
 
 export interface AuthState {
