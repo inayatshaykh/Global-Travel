@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Plus, Trash2 } from 'lucide-react';
 import type { PackageFormData, PackageFeature } from '../types';
 
 interface PackageFormProps {
@@ -34,11 +35,8 @@ export default function PackageForm({ initialValues, onSubmit, onCancel }: Packa
   const [imageDataUrl, setImageDataUrl] = useState(initialValues?.imageDataUrl ?? '');
   const [features, setFeatures] = useState<PackageFeature[]>(
     initialValues?.features?.length
-      ? DEFAULT_FEATURE_LABELS.map((label) => {
-          const existing = initialValues.features.find((f) => f.label === label);
-          return existing ?? { label, detail: '' };
-        })
-      : emptyFeatures()
+      ? initialValues.features
+      : [{ label: '', detail: '' }]
   );
   const [errors, setErrors] = useState<FormErrors>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -51,9 +49,14 @@ export default function PackageForm({ initialValues, onSubmit, onCancel }: Packa
     reader.readAsDataURL(file);
   };
 
-  const handleFeatureChange = (index: number, detail: string) => {
-    setFeatures((prev) => prev.map((f, i) => (i === index ? { ...f, detail } : f)));
+  const handleFeatureChange = (index: number, field: 'label' | 'detail', value: string) => {
+    setFeatures((prev) => prev.map((f, i) => (i === index ? { ...f, [field]: value } : f)));
   };
+
+  const addFeature = () => setFeatures((prev) => [...prev, { label: '', detail: '' }]);
+
+  const removeFeature = (index: number) =>
+    setFeatures((prev) => prev.filter((_, i) => i !== index));
 
   const validate = (): FormErrors => {
     const errs: FormErrors = {};
@@ -125,22 +128,49 @@ export default function PackageForm({ initialValues, onSubmit, onCancel }: Packa
         <div className="flex flex-col gap-3">
           <div>
             <p className="font-semibold text-gray-800 text-sm">What's Included</p>
-            <p className="text-gray-400 text-xs mt-0.5">Fill in the details for each feature (leave blank to omit)</p>
+            <p className="text-gray-400 text-xs mt-0.5">Add features like Hotel, Transport, Meals, etc.</p>
           </div>
-          <div className="grid grid-cols-1 gap-3">
+          <div className="flex flex-col gap-2">
             {features.map((feature, index) => (
-              <div key={feature.label} className="flex items-center gap-3 bg-gray-50 rounded-lg px-4 py-3">
-                <span className="w-24 text-sm font-medium text-gray-700 shrink-0">{feature.label}</span>
+              <div key={index} className="flex items-center gap-2">
                 <Input
                   type="text"
-                  placeholder={`e.g. ${feature.label === 'Hotel' ? '4-star beachfront resort' : feature.label === 'Transport' ? 'Airport transfers included' : feature.label === 'Meals' ? 'Daily breakfast + dinner' : feature.label === 'Activities' ? 'Guided tours & excursions' : feature.label === 'Guide' ? 'English-speaking local guide' : 'Round-trip economy class'}`}
-                  value={feature.detail}
-                  onChange={(e) => handleFeatureChange(index, e.target.value)}
-                  className="flex-1 bg-white"
+                  placeholder="Label (e.g. Hotel)"
+                  value={feature.label}
+                  onChange={(e) => handleFeatureChange(index, 'label', e.target.value)}
+                  className="w-36 shrink-0"
                 />
+                <Input
+                  type="text"
+                  placeholder="Detail (e.g. 4-star beachfront resort)"
+                  value={feature.detail}
+                  onChange={(e) => handleFeatureChange(index, 'detail', e.target.value)}
+                  className="flex-1"
+                />
+                {features.length > 1 && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="text-red-400 hover:text-red-600 shrink-0"
+                    onClick={() => removeFeature(index)}
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </Button>
+                )}
               </div>
             ))}
           </div>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="w-fit flex items-center gap-2"
+            onClick={addFeature}
+          >
+            <Plus className="w-4 h-4" />
+            Add Item
+          </Button>
         </div>
 
         {/* Image */}
