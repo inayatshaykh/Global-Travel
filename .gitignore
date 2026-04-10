@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Kiro IDE workspace
+.kiro/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
