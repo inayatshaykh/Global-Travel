@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { Globe, LayoutDashboard, PlusCircle, Package } from "lucide-react";
+import { Globe, LayoutDashboard, PlusCircle, Package, MessageSquare, MessageSquarePlus } from "lucide-react";
 
 const navItems = [
   { to: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/admin/add-package", label: "Add Package", icon: PlusCircle },
   { to: "/admin/manage-packages", label: "Manage Packages", icon: Package },
+  { to: "/admin/add-testimonial", label: "Add Testimonial", icon: MessageSquarePlus },
+  { to: "/admin/manage-testimonials", label: "Manage Testimonials", icon: MessageSquare },
 ];
 
 export default function Sidebar() {
