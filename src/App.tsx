@@ -14,6 +14,7 @@ import Dashboard from "./admin/pages/Dashboard";
 import AddPackage from "./admin/pages/AddPackage";
 import ManagePackages from "./admin/pages/ManagePackages";
 import { PackageProvider } from "./admin/context/PackageContext";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <Sonner />
       <PackageProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/package/:id" element={<PackageDetails />} />
