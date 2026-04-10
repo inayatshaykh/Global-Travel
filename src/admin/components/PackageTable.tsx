@@ -45,7 +45,7 @@ export default function PackageTable({ packages, onEdit, onDelete }: PackageTabl
               </td>
               <td className="px-4 py-3 font-medium text-gray-800">{pkg.title}</td>
               <td className="px-4 py-3 text-gray-700">
-                ${pkg.price.toLocaleString('en-US')}
+                ₹{pkg.price.toLocaleString('en-IN')}
               </td>
               <td className="px-4 py-3 text-gray-700">
                 {pkg.durationDays}D / {pkg.durationNights}N
@@ -86,7 +86,7 @@ export default function PackageTable({ packages, onEdit, onDelete }: PackageTabl
             />
             <div className="flex-1 min-w-0">
               <p className="font-medium text-gray-800 truncate">{pkg.title}</p>
-              <p className="text-sm text-gray-600">${pkg.price.toLocaleString('en-US')}</p>
+              <p className="text-sm text-gray-600">₹{pkg.price.toLocaleString('en-IN')}</p>
               <p className="text-sm text-gray-500">{pkg.durationDays}D / {pkg.durationNights}N</p>
             </div>
             <div className="flex gap-1 flex-shrink-0">

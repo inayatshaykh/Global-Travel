@@ -98,7 +98,7 @@ export default function PackageForm({ initialValues, onSubmit, onCancel }: Packa
 
         {/* Price */}
         <div className="flex flex-col gap-1">
-          <Label htmlFor="pkg-price">Price ($)</Label>
+          <Label htmlFor="pkg-price">Price (₹)</Label>
           <Input id="pkg-price" type="number" placeholder="0" min={0} value={price} onChange={(e) => setPrice(e.target.value === '' ? '' : Number(e.target.value))} />
           {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price}</p>}
         </div>

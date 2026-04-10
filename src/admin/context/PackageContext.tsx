@@ -15,7 +15,7 @@ const PackageContext = createContext<PackageContextValue | null>(null);
 const seedPackages: Package[] = destinations.map((d) => ({
   id: d.id,
   title: d.title,
-  price: parseFloat(d.price.replace(/[$,]/g, "")),
+  price: parseFloat(d.price.replace(/[₹$,]/g, "")),
   durationDays: parseInt(d.days),
   durationNights: parseInt(d.days.split("/")[1] ?? "0"),
   description: d.description,

@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="container mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
-          <a href="#" className="flex items-center gap-2 text-primary-foreground font-bold text-xl mb-4">
+          <a href="/" className="flex items-center gap-2 text-primary-foreground font-bold text-xl mb-4">
             <Plane className="h-6 w-6" /> Globe Trotter
           </a>
           <p className="text-primary-foreground/60 text-sm leading-relaxed">
@@ -37,19 +37,18 @@ const Footer = () => (
           <h4 className="font-semibold mb-4">Follow Us</h4>
           <div className="flex gap-4">
             {[Instagram, Facebook, Twitter].map((Icon, i) => (
-              <a key={i} href="#" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary/50 transition-colors">
+              <a key={i} href="/" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary/50 transition-colors">
                 <Icon className="h-5 w-5" />
               </a>
             ))}
           </div>
-          <p className="text-primary-foreground/40 text-xs mt-6">
-            GST No: 07AABCG1234A1Z5 &nbsp;|&nbsp; IATA Accredited
-          </p>
         </div>
       </div>
       <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center text-sm text-primary-foreground/40">
-        © 2026 Globe Trotter Travel Pvt. Ltd. All rights reserved. | New Delhi, India
+        © 2026 Globe Trotter Travel. All rights reserved. | New Delhi, India
       </div>
+    </div>
+  </footer>
     </div>
   </footer>
 );

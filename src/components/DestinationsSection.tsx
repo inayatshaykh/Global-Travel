@@ -19,7 +19,7 @@ const DestinationsSection = () => {
               id={pkg.id}
               image={pkg.imageDataUrl}
               title={pkg.title}
-              price={`$${pkg.price.toLocaleString("en-US")}`}
+              price={`₹${pkg.price.toLocaleString("en-IN")}`}
               days={`${pkg.durationDays} Days / ${pkg.durationNights} Nights`}
               description={pkg.description}
             />
