@@ -6,18 +6,31 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div>
           <a href="#" className="flex items-center gap-2 text-primary-foreground font-bold text-xl mb-4">
-            <Plane className="h-6 w-6" /> Wanderlust
+            <Plane className="h-6 w-6" /> Globe Trotter
           </a>
           <p className="text-primary-foreground/60 text-sm leading-relaxed">
-            Making dream vacations a reality since 2014. Your trusted partner for unforgettable travel experiences around the globe.
+            India's trusted travel partner since 2014. We craft unforgettable journeys across the globe — from the Himalayas to the Maldives and beyond.
           </p>
         </div>
         <div>
           <h4 className="font-semibold mb-4">Contact Us</h4>
           <ul className="space-y-3 text-sm text-primary-foreground/60">
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hello@wanderlust.travel</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +1 (234) 567-890</li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> 123 Travel Street, Adventure City</li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 shrink-0" />
+              <a href="mailto:info@globetrotter.in" className="hover:text-primary-foreground transition-colors">
+                info@globetrotter.in
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 shrink-0" />
+              <a href="https://wa.me/917982045480" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
+                +91 79820 45480 (WhatsApp)
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 shrink-0" />
+              Connaught Place, New Delhi, India — 110001
+            </li>
           </ul>
         </div>
         <div>
@@ -29,10 +42,13 @@ const Footer = () => (
               </a>
             ))}
           </div>
+          <p className="text-primary-foreground/40 text-xs mt-6">
+            GST No: 07AABCG1234A1Z5 &nbsp;|&nbsp; IATA Accredited
+          </p>
         </div>
       </div>
       <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center text-sm text-primary-foreground/40">
-        © 2026 Wanderlust. All rights reserved.
+        © 2026 Globe Trotter Travel Pvt. Ltd. All rights reserved. | New Delhi, India
       </div>
     </div>
   </footer>

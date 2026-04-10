@@ -1,10 +1,10 @@
 import { DollarSign, ShieldCheck, Headphones, Heart } from "lucide-react";
 
 const features = [
-  { icon: DollarSign, title: "Affordable Prices", desc: "Best value travel packages without compromising on quality or experience." },
-  { icon: ShieldCheck, title: "Trusted & Reliable", desc: "10+ years of experience with thousands of happy travelers worldwide." },
-  { icon: Headphones, title: "24/7 Support", desc: "Round-the-clock customer support before, during, and after your trip." },
-  { icon: Heart, title: "Tailored Experiences", desc: "Every package is customizable to match your unique travel preferences." },
+  { icon: DollarSign, title: "Best Price Guarantee", desc: "Competitive pricing with no hidden charges. We match any lower quote from a verified Indian travel agency." },
+  { icon: ShieldCheck, title: "Trusted Since 2014", desc: "Over 10 years of experience serving Indian travellers with 5000+ happy customers across India." },
+  { icon: Headphones, title: "24/7 WhatsApp Support", desc: "Reach us anytime on WhatsApp at +91 79820 45480 — before, during, and after your trip." },
+  { icon: Heart, title: "Customised Packages", desc: "Every itinerary is tailored to your budget, preferences, and travel dates. No one-size-fits-all here." },
 ];
 
 const WhyChooseUs = () => (
@@ -13,6 +13,7 @@ const WhyChooseUs = () => (
       <div className="text-center mb-16">
         <span className="text-primary font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">Travel with Confidence</h2>
+        <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm">Trusted by thousands of Indian travellers for international and domestic holiday packages.</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map(({ icon: Icon, title, desc }) => (

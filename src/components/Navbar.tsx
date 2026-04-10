@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Menu, X, Plane } from "lucide-react";
 
+const WA_LINK = "https://wa.me/917982045480?text=Hi!%20I%20want%20to%20book%20a%20trip";
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const links = ["Home", "Destinations", "Packages", "About", "Contact"];
@@ -10,7 +12,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-2 text-primary font-bold text-xl">
           <Plane className="h-6 w-6" />
-          <span>Wanderlust</span>
+          <span>Globe Trotter</span>
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
@@ -22,7 +24,7 @@ const Navbar = () => {
           ))}
         </ul>
         <a
-          href="https://wa.me/1234567890?text=Hi!%20I%20want%20to%20book%20a%20trip"
+          href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 gradient-ocean text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -41,7 +43,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://wa.me/1234567890?text=Hi!%20I%20want%20to%20book%20a%20trip"
+            href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 inline-flex gradient-ocean text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold"

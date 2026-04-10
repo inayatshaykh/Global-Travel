@@ -1,9 +1,27 @@
 import { Star } from "lucide-react";
 
 const testimonials = [
-  { name: "Sarah Mitchell", location: "Bali Trip", rating: 5, review: "An absolutely magical experience! Every detail was perfectly planned. The rice terrace tour was a highlight I'll never forget.", avatar: "SM" },
-  { name: "James Cooper", location: "Swiss Alps Tour", rating: 5, review: "Breathtaking scenery and top-notch service. Wanderlust made our honeymoon truly unforgettable. Highly recommend!", avatar: "JC" },
-  { name: "Priya Sharma", location: "Greece Getaway", rating: 5, review: "Santorini sunsets, delicious food, and seamless logistics. This was the stress-free vacation I always dreamed of.", avatar: "PS" },
+  {
+    name: "Rahul Mehta",
+    location: "Bali Trip — Mumbai",
+    rating: 5,
+    review: "Globe Trotter made our Bali trip absolutely seamless. From visa assistance to hotel bookings, everything was handled perfectly. Will definitely book again!",
+    avatar: "RM",
+  },
+  {
+    name: "Ananya Sharma",
+    location: "Swiss Alps Tour — Delhi",
+    rating: 5,
+    review: "Our honeymoon in Switzerland was a dream come true. The team at Globe Trotter went above and beyond to make every moment special. Highly recommended!",
+    avatar: "AS",
+  },
+  {
+    name: "Vikram Nair",
+    location: "Greece Getaway — Bangalore",
+    rating: 5,
+    review: "Santorini was breathtaking! Globe Trotter's package was the best value we found. No hidden charges, great hotels, and 24/7 support throughout the trip.",
+    avatar: "VN",
+  },
 ];
 
 const TestimonialsSection = () => (
