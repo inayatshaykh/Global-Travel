@@ -5,7 +5,7 @@ const WA_LINK = "https://wa.me/917982045480?text=Hi!%20I%20want%20to%20book%20a%
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const links = ["Home", "Destinations", "Packages", "About", "Contact"];
+  const links = ["Home", "Packages", "About", "Contact"];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
