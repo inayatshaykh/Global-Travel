@@ -13,6 +13,7 @@ import AdminLogin from "./admin/pages/AdminLogin";
 import Dashboard from "./admin/pages/Dashboard";
 import AddPackage from "./admin/pages/AddPackage";
 import ManagePackages from "./admin/pages/ManagePackages";
+import { PackageProvider } from "./admin/context/PackageContext";
 
 const queryClient = new QueryClient();
 
@@ -21,29 +22,31 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/package/:id" element={<PackageDetails />} />
-          <Route path="/admin/login" element={
-            <AdminProviders>
-              <AdminLogin />
-            </AdminProviders>
-          } />
-          <Route path="/admin" element={
-            <AdminProviders>
-              <AuthGuard />
-            </AdminProviders>
-          }>
-            <Route element={<AdminLayout />}>
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="add-package" element={<AddPackage />} />
-              <Route path="manage-packages" element={<ManagePackages />} />
+      <PackageProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/package/:id" element={<PackageDetails />} />
+            <Route path="/admin/login" element={
+              <AdminProviders>
+                <AdminLogin />
+              </AdminProviders>
+            } />
+            <Route path="/admin" element={
+              <AdminProviders>
+                <AuthGuard />
+              </AdminProviders>
+            }>
+              <Route element={<AdminLayout />}>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="add-package" element={<AddPackage />} />
+                <Route path="manage-packages" element={<ManagePackages />} />
+              </Route>
             </Route>
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </PackageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

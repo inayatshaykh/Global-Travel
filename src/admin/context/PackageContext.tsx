@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import type { Package, PackageFormData } from "../types";
+import { destinations } from "@/data/destinations";
 
 interface PackageContextValue {
   packages: Package[];
@@ -10,8 +11,20 @@ interface PackageContextValue {
 
 const PackageContext = createContext<PackageContextValue | null>(null);
 
+// Seed initial packages from the hardcoded destinations data
+const seedPackages: Package[] = destinations.map((d) => ({
+  id: d.id,
+  title: d.title,
+  price: parseFloat(d.price.replace(/[$,]/g, "")),
+  durationDays: parseInt(d.days),
+  durationNights: parseInt(d.days.split("/")[1] ?? "0"),
+  description: d.description,
+  imageDataUrl: d.image,
+  isAdminAdded: false,
+}));
+
 export function PackageProvider({ children }: { children: React.ReactNode }) {
-  const [packages, setPackages] = useState<Package[]>([]);
+  const [packages, setPackages] = useState<Package[]>(seedPackages);
 
   const addPackage = (data: PackageFormData) => {
     const newPackage: Package = { id: crypto.randomUUID(), ...data };

@@ -5,7 +5,8 @@ export interface Package {
   durationDays: number;
   durationNights: number;
   description: string;
-  imageDataUrl: string; // base64 data URL
+  imageDataUrl: string; // base64 data URL or asset URL
+  isAdminAdded?: boolean; // flag to distinguish admin-added packages
 }
 
 export interface PackageFormData {
